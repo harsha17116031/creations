@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .main{
+            margin:20px;
+        }
+        .container{
+            background-color: rgba(161, 161, 161,0.4);
+            width:60%;
+            box-shadow: 10px black;
+            text-align: center;
+            position: relative;
+            left:20%;
+            margin:10px;
+        }
+        .headers{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1 class="headers">Creations</h1>
+        <div class="container">
+           <h3>Number of Creations of dare 1</h3>
+           <h4><%= info[0].credare1 %></h4>
+        </div>
+        <div class="container">
+            <h3>Number of Creations of dare 2</h3>
+            <h4><%= info[1].credare2 %></h4>
+        </div>
+        <div class="container">
+            <h3>Number of Creations of dare 3</h3>
+            <h4><%= info[2].credare3 %></h4>
+        </div>
+    </div>
+    <div class="main">
+        <h1 class="headers">Openings</h1>
+        <div class="container">
+            <h3>Number of dare link openings</h3>
+            <h4><%= info[3].linkopen %></h4>
+        </div>
+    </div>
+    <div>
+        <h1 class="headers">Attempts</h1>
+        <div class="container">
+            <h3>Number of Attempts of dares</h3>
+            <h4><%= info[4].dareatempt %></h4>
+        </div>
+    </div>
+    <div>
+        <h1 class="headers">Visits</h1>
+        <div class="container">
+            <h3>Number of Visits of home page</h3>
+            <h4><%= info[5].visits %></h4>
+        </div>
+    </div>
+    <div class="main">
+        <h1 class="headers">Subscriptions</h1>
+        <div class="container">
+            <h3>Number of subscriptions attempts</h3>
+            <h4><%= info[6].subatempt %></h4>
+        </div>
+    </div>
+    <div>
+        <h1 class="headers">Subscriptions made</h1>
+        <div class="container">
+            <h3>Number of subscriptions made</h3>
+            <h4><%= info[7].submade %></h4>
+        </div>
+    </div>
+    <div>
+        <h1 class="headers">Suggestions made</h1>
+        <div class="container">
+            <h3>Number of Suggestions made</h3>
+            <h4><%= info[8].suggmade %></h4>
+        </div>
+    </div>
+    <div>
+        <h1 class="headers">New Year Creations</h1>
+        <div class="container">
+            <h3>Number of New year creations</h3>
+            <h4><%= info[9].newcrea %></h4>
+        </div>
+    </div>
+    <div>
+        <h1 class="headers">New Year Openings</h1>
+        <div class="container">
+            <h3>Number of New year openings</h3>
+            <h4><%= info[10].newopens %></h4>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/home.css" type="text/css">
+    <style>
+        #main1{
+            position: relative;
+            top:30%;
+            left:15%;
+            width:80%;
+        }
+        #main2{
+            position: relative;
+            top:50%;
+            left:0%;
+            width:80%;
+        }
+        .botom{
+            position: absolute;
+            bottom:10px;
+            left:24%;
+        }
+        #err{
+            padding:8px;
+            margin:15px;
+            color:red;
+        }
+        .pops{
+            border:4px solid black;
+            border-radius: 10px;
+            padding:8px;
+            font-size: 15px;
+        }
+        .btn-pops{
+            border:4px solid black;
+            border-radius: 10px;
+            padding:8px;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div>
+        <div class="header"></div>
+    
+        <div class="menu" id="menu">
+            <div class="menu-icon"></div>
+            <div class="menu-icon"></div>
+            <div class="menu-icon"></div>
+        </div>
+        <div class="register">
+            <a href="/signup" id="register">Sign up</a>
+        </div>
+    </div>
+    <div class="side-menu" id="side-menu">
+        <a href="javascript:void(0)" id="menu-close"> <i id="menu-x"  class="fa fa-close"></i></a>
+        <h2 id="menu-header">Hii </h2>
+        <a href="/" class="menu-items">Home</a>
+        <a href="/dares" class="menu-items">Dares</a>
+        <a href="/help" class="menu-items">Help</a>
+        <a href="/suggestions" class="menu-items">Suggestions</a>
+        <a href="/subscribe" class="menu-items">Subscribe</a>
+    </div>
+    <script>
+        var menuOpen=document.getElementById("menu");
+        menuOpen.onclick=function(){
+            document.getElementById("side-menu").style.left="0%";
+        }
+        var menuClose=document.getElementById("menu-close");
+        menuClose.onclick=function(){
+            document.getElementById("side-menu").style.left="-40%";
+        }
+    </script>
+    <div>
+        <div class="container">
+            <h1 id="main1" class="main-header"><%= info[0].name %></h1>
+            <h1 id="main2" class="main-header">Wishes you a Happy new Year</h1>
+
+            
+        </div>
+        <div class="botom">
+            <form action="/create-wishes" onsubmit="return validMe()">
+                <h4 class="head-pops">Create your own</h4>
+                <input type="text" id="fname" name="fname" class="pops" placeholder="Enter Name...">
+                <input type="submit" class="btn-pops" name="submit" value="Go"> <br>
+                <span id="err"></span>
+            </form>
+        </div>
+    </div>
+    <script>
+        var heads=document.getElementsByClassName('main-header');
+        var i=17;
+        var j=0;
+        var cols=["red","blue","grey","black","green","yellow","orange"];
+        setInterval(changsize,100);
+        setInterval(changer,200);
+        function changer(){
+            while(j<cols.length){
+                heads[0].style.color=cols[j];
+                heads[1].style.color=cols[j];
+                j++;
+                if(j>=7){
+                    j=0;
+                    break;
+                }
+                break;
+            }
+        }
+        function changsize(){
+            while(i<32){
+                heads[0].style.fontSize=i+"px";
+                i++;
+                if(i>=32){
+                    i=17;
+                    break;
+                }
+                break;
+            }
+        }
+        validMe=function(){
+            var name=document.getElementById('fname').value;
+            if(name==''){
+                var err=document.getElementById('err');
+                err.innerHTML="Enter Your Name!!";
+                return false;
+            }else{
+                return true;
+            }
+        };
+    </script>
+</div>
+</body>
+</html>

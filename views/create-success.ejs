@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/home.css" type="text/css">
+    <style>
+        #header{
+            font-family: cursive;
+        }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+             visibility: hidden;
+              width: 140px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 150%;
+            left: 50%;
+            margin-left: -75px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        .items{
+            padding:8px;
+            border-radius: 10px;
+            font-family: cursive;
+            font-size: 18px;
+        }
+        .button{
+            background-color:aquamarine;
+        }
+        .container{
+            left:15%;
+        }
+        .itembtn{
+            border-radius: 10px;
+            background-color: aquamarine;
+            padding:16px 24px;
+            color:black;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div>
+        <div class="header"></div>
+    
+        <div class="menu" id="menu">
+            <div class="menu-icon"></div>
+            <div class="menu-icon"></div>
+            <div class="menu-icon"></div>
+        </div>
+        <div class="register">
+            <a href="/signup" id="register">Sign up</a>
+        </div>
+    </div>
+    <div class="side-menu" id="side-menu">
+        <a href="javascript:void(0)" id="menu-close"> <i id="menu-x"  class="fa fa-close"></i></a>
+        <h2 id="menu-header">Hii </h2>
+        <a href="/" class="menu-items">Home</a>
+        <a href="/dares" class="menu-items">Dares</a>
+        <a href="/help" class="menu-items">Help</a>
+        <a href="/suggestions" class="menu-items">Suggestions</a>
+        <a href="/subscribe" class="menu-items">Subscribe</a>
+    </div>
+    <script>
+        var menuOpen=document.getElementById("menu");
+        menuOpen.onclick=function(){
+            document.getElementById("side-menu").style.left="0%";
+        }
+        var menuClose=document.getElementById("menu-close");
+        menuClose.onclick=function(){
+            document.getElementById("side-menu").style.left="-40%";
+        }
+    </script>
+    <div>
+        <div class="container">
+            <h2 id="header">Your link is given below:</h2>
+            <input type="text" id="link" value="<%= data[0].link %>" onchange="changeMe()" class="items"> 
+            <div class="tooltip">
+                <button onclick="myclick()" onmouseout="outFunc()" class="items button">
+                  <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+                  Copy Link
+                  </button>
+            </div>
+            <div>
+                <h3>Press the copy button to copy the contents to clipboard.</h3>
+                <h3>Paste it either as a message or as a status in your whatsapp,instagram etc.</h3>
+                <h3>Now click continue to get the comments.</h3>
+                <a href="/display?id=<%= data[1].id %>" class="itembtn">Continue</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        function myclick(){
+            var text=document.getElementById("link");
+            text.select();
+            text.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+
+            var tip=document.getElementById('myTooltip');
+            tip.innerHTML="Copied";
+        }
+        function outFunc(){
+            var tooltip = document.getElementById("myTooltip");
+            tooltip.innerHTML = "Copy to clipboard";
+        }
+    </script>
+</div>
+</body>
+</html>

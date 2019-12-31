@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/home.css" type="text/css">
+    <style>
+        .form-items{
+            border-radius: 10px;
+            padding:8px;
+            margin:15px;
+            font-family: cursive;
+            font-size: 20px;
+        }
+        #err{
+            padding:8px;
+            margin:15px;
+            color:red;
+        }
+        #submit{
+            border-radius: 10px;
+            padding:8px;
+            margin:15px;
+            font-family: cursive;
+            font-size: 20px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div>
+        <div class="header"></div>
+    
+        <div class="menu" id="menu">
+            <div class="menu-icon"></div>
+            <div class="menu-icon"></div>
+            <div class="menu-icon"></div>
+        </div>
+        <div class="register">
+            <a href="/signup" id="register">Sign up</a>
+        </div>
+    </div>
+    <div class="side-menu" id="side-menu">
+        <a href="javascript:void(0)" id="menu-close"> <i id="menu-x"  class="fa fa-close"></i></a>
+        <h2 id="menu-header">Hii </h2>
+        <a href="/" class="menu-items">Home</a>
+        <a href="/dares" class="menu-items">Dares</a>
+        <a href="/help" class="menu-items">Help</a>
+        <a href="/suggestions" class="menu-items">Suggestions</a>
+        <a href="/subscribe" class="menu-items">Subscribe</a>
+    </div>
+    <script>
+        var menuOpen=document.getElementById("menu");
+        menuOpen.onclick=function(){
+            document.getElementById("side-menu").style.left="0%";
+        }
+        var menuClose=document.getElementById("menu-close");
+        menuClose.onclick=function(){
+            document.getElementById("side-menu").style.left="-40%";
+        }
+    </script>
+    <div>
+        <div class="container">
+            <form name="myform" action="/create-newyear" method="GET" onsubmit="return validMe()">
+                <input type="text" name="fname" id="fname" class="form-items" placeholder="Enter Your Name.."> <br>
+                <span id="err"> </span> <br>
+                <input type="submit" id="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+    <script>
+        validMe=function(){
+            var fname=document.forms["myform"]["fname"].value;
+            var err=document.getElementById('err');
+            if(fname===''){
+                err.innerHTML="Enter Your Name!";
+                return false;
+            }else{
+                return true;
+            }
+        };
+    </script>
+</div>
+</body>
+</html>

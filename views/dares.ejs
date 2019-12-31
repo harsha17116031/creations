@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/home.css" type="text/css">
+    <style>
+        .dare-items{
+            text-decoration: none;
+            padding: 20px;
+            background-color:white;
+            color:black;
+            width:90%;
+            border:3px solid black;
+            display:block;
+            margin: 10px;
+            opacity: 0.0;
+            transition: 1s;
+            text-align: center;
+        }
+        .dare-items:hover{
+            background-color: aquamarine;
+            border:0px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div>
+        <div class="header"></div>
+    
+        <div class="menu" id="menu">
+            <div class="menu-icon"></div>
+            <div class="menu-icon"></div>
+            <div class="menu-icon"></div>
+        </div>
+        <div class="register">
+            <a href="/signup" id="register">Sign up</a>
+        </div>
+    </div>
+    <div class="side-menu" id="side-menu">
+        <a href="javascript:void(0)" id="menu-close"> <i id="menu-x"  class="fa fa-close"></i></a>
+        <h2 id="menu-header">Hii </h2>
+        <a href="/" class="menu-items">Home</a>
+        <a href="/dares" class="menu-items">Dares</a>
+        <a href="/help" class="menu-items">Help</a>
+        <a href="/suggestions" class="menu-items">Suggestions</a>
+        <a href="/subscribe" class="menu-items">Subscribe</a>
+    </div>
+    <script>
+        var menuOpen=document.getElementById("menu");
+        menuOpen.onclick=function(){
+            document.getElementById("side-menu").style.left="0%";
+        }
+        var menuClose=document.getElementById("menu-close");
+        menuClose.onclick=function(){
+            document.getElementById("side-menu").style.left="-40%";
+        }
+    </script>
+    <div>
+        <div class="container">
+            <h2>Select one of the dares</h2>
+            <a href="/dares/create-dare-1" class="dare-items">Dare1</a>
+            <a href="/dares/create-dare-2" class="dare-items">Dare2</a>
+            <a href="/dares/create-dare-3" class="dare-items">Dare3</a>
+        </div>
+    </div>
+    <script>
+        var dareItem=document.getElementsByClassName("dare-items");
+        var i=0;
+        setInterval(function(){
+            dareItem[i].style.opacity="1";
+            i++;
+            if(dareItem.length===3){
+                clearInterval();
+            }
+        },1000);
+    </script>
+</div>
+</body>
+</html>
